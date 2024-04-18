@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Library</title>
+    <link rel="stylesheet" href="./styles.css">
+    <link rel="icon" href="./favicon.ico" type="image/x-icon">
+  </head>
+  <body>
+    <header>
+      <h2><a href="./index.html">library</a></h2>
+      <button class="button" id="login">Log in</button>
+    </header>
+  
+    <main>
+      <button class="button" id="addBook">+ Add</button>
+      
+      <div class="books-grid" id="booksGrid">
+      
+      </div>
+      
+      <div class="modal active" id="addBookModal">
+        <form class="add-book-form" id="addBookForm">
+            <div>
+                <h3>Add new book</h3>
+                <span class="close" id="close">&times;</span>
+            </div>
+            
+            <input class="input" type="text" id="title" placeholder="Title" maxlength="100" required>
+            <p class="error" id="titleError"></p>
+            <input class="input" type="text" id="author" placeholder="Author" maxlength="100" required>
+            <p class="error" id="authorError"></p>
+            <input class="input" type="number" id="pages" placeholder="Pages" max="10000" required>
+            <p class="error" id="pagesError"></p>
+            
+            <div class="is-read">
+                <label for="is-read">Have you read it?</label>
+                <input class="checkbox" type="checkbox" id="isRead">
+            </div>
+            
+            <button class="button" type="submit">Submit</button>
+        </form>
+      </div>
+    </main>
+    
+	<script src="script.js"></script>
+  </body>
+</html>
