@@ -4,41 +4,45 @@ const addBookForm = document.getElementById("addBookForm");
 const booksGrid = document.getElementById("booksGrid");
 const closeBookModal = document.getElementById("close");
 
+class Book {
+    constructor(title, author, pages, isRead) {
+        this.title = title;
+        this.author = author;
+        this.pages = pages;
+        this.isRead = isRead;
+    }
+}
+
+class Library {
+    constructor() {
+        this.books = [];
+    }
+
+    addBookToLibrary(book) {
+        this.books.push(book);
+        createBookCard(book);
+    }
+
+    removeBookFromLibrary(book) {
+        const index = library.books.findIndex(book => book.title === title.textContent);
+
+        if (index !== -1) {
+            library.books.splice(index, 1);
+        }
+    }
+
+    isTitlePresent(title) {
+        for (let book of this.books) {
+            if (book.title === title) {
+                return true;
+            }
+        }
+
+        return false;
+    }
+}
+
 let library = new Library();
-
-function Book(title, author, pages, isRead) {
-	this.title = title;
-    this.author = author;
-	this.pages = pages;
-    this.isRead = isRead;
-}
-
-function Library() {
-	this.books = [];
-  
-    this.addBookToLibrary = function(book) {
-  	this.books.push(book);
-    createBookCard(book);
-  };
-  
-  this.removeBookFromLibrary = function(book) {
-    const index = library.books.findIndex(book => book.title === title.textContent);
-
-    if (index !== -1) {
-        library.books.splice(index, 1);
-    }
-  };
-  
-  this.isTitlePresent = function(title) {
-  	for (let book of this.books) {
-    	if (book.title === title) {
-      	return true;
-      }
-    }
-    
-    return false;
-  };
-}
 
 function createBookCard(book) {
 	const bookCard = document.createElement("div");
