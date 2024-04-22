@@ -4,42 +4,38 @@ const addBookForm = document.getElementById("addBookForm");
 const booksGrid = document.getElementById("booksGrid");
 const closeBookModal = document.getElementById("close");
 
-class Book {
-    constructor(title, author, pages, isRead) {
-        this.title = title;
-        this.author = author;
-        this.pages = pages;
-        this.isRead = isRead;
-    }
+function Book(title, author, pages, isRead) {
+	this.title = title;
+    this.author = author;
+	this.pages = pages;
+    this.isRead = isRead;
 }
 
-class Library {
-    constructor() {
-        this.books = [];
+function Library() {
+	this.books = [];
+  
+    this.addBookToLibrary = function(book) {
+  	this.books.push(book);
+    createBookCard(book);
+  };
+  
+  this.removeBookFromLibrary = function(book) {
+    const index = library.books.findIndex(book => book.title === title.textContent);
+
+    if (index !== -1) {
+        library.books.splice(index, 1);
     }
-
-    addBookToLibrary(book) {
-        this.books.push(book);
-        createBookCard(book);
+  };
+  
+  this.isTitlePresent = function(title) {
+  	for (let book of this.books) {
+    	if (book.title === title) {
+      	return true;
+      }
     }
-
-    removeBookFromLibrary(book) {
-        const index = library.books.findIndex(book => book.title === title.textContent);
-
-        if (index !== -1) {
-            library.books.splice(index, 1);
-        }
-    }
-
-    isTitlePresent(title) {
-        for (let book of this.books) {
-            if (book.title === title) {
-                return true;
-            }
-        }
-
-        return false;
-    }
+    
+    return false;
+  };
 }
 
 let library = new Library();
